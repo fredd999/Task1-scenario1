@@ -1,0 +1,33 @@
+- name: BGP CONFIG
+  hosts: RB
+  gather_facts: no
+  connection: network_cli
+
+  # vars_prompt:
+  #   - name: ansible_user
+  #     prompt: "Enter username "
+  #     private: no
+
+  #   - name: ansible_password
+  #     prompt: "Enter password "
+
+  tasks:
+    - name: Parameter Setup Task - Ignore
+      ansible.netcommon.cli_command:
+        command: "test"
+      ignore_errors: True
+
+    - name: configure global bgp as 1
+      cisco.ios.ios_bgp:
+        config:
+          bgp_as: 1
+          log_neighbor_changes: true
+          neighbors:
+          - neighbor: 1.1.1.1
+            remote_as: 1
+            timers:
+              keepalive: 60
+              holdtime: 180
+              min_neighbor_holdtime: 180
+        operation: merge
+      become: yes
