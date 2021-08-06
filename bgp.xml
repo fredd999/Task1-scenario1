@@ -1,0 +1,19 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-bgp">
+        <id>{{BGP_AS}}</id>
+        <neighbor>
+          <id>{{NEIGHBOR_IP}}</id>
+          <remote-as>{{REMOTE_AS}}</remote-as>
+          <ebgp-multihop/>
+          <update-source>
+            <interface>
+              <Loopback>{{UPDATE_INTERFACE}}</Loopback>
+            </interface>
+          </update-source>
+        </neighbor>
+      </bgp>
+    </router>
+  </native>
+</config>
