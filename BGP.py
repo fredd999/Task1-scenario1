@@ -14,4 +14,3 @@ bgp_rendered = bgp_template.render(BGP_AS=input("Please specify local AS: "),
 Configuration = A.edit_config(target='running', config=bgp_rendered)
 print(Configuration)
 
-1
