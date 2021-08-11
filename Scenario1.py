@@ -27,7 +27,7 @@ xml_filter = """
     </native> 
 """
 
-print("NETCONF EXAMPLE 1: ")
+print("NETCONF Result: ")
 get_request(xml_filter)
 print("*" * 80)
 print("\n")
