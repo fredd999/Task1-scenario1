@@ -3,13 +3,8 @@
   gather_facts: no
   connection: network_cli
 
-  # vars_prompt:
-  #   - name: ansible_user
-  #     prompt: "Enter username "
-  #     private: no
-
-  #   - name: ansible_password
-  #     prompt: "Enter password "
+  vars_files:
+    - "variables.yml"
 
   tasks:
     - name: Parameter Setup Task - Ignore
@@ -20,14 +15,16 @@
     - name: configure global bgp as 1
       cisco.ios.ios_bgp:
         config:
-          bgp_as: 1
+          bgp_as: "{{ bgp_as }}"
           log_neighbor_changes: true
           neighbors:
-          - neighbor: 1.1.1.1
-            remote_as: 1
+          - neighbor: "{{ neighbor }}"
+            remote_as: "{{ remote_as }}"
+            ebgp_multihop: "{{ebgp_multihop}}"
             timers:
               keepalive: 60
               holdtime: 180
               min_neighbor_holdtime: 180
+            update_source: "{{update_source}}"
         operation: merge
       become: yes

@@ -1,0 +1,10 @@
+scp
+ansible
+jmespath
+jmespath-terminal
+jinja2
+netmiko
+requests
+virtualenv
+configparser
+ncclient

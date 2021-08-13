@@ -1,0 +1,13 @@
+# GLOBAL VARIABLE FILE - contains all the variables needed by the script
+
+
+# General Variables
+
+# bgp information
+bgp_as: 1
+neighbor: 1.1.1.1
+remote_as: 1
+ebgp_multihop: 255
+update_source: Loopback0
+
+

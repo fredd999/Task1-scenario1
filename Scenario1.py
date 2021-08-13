@@ -10,11 +10,10 @@ def get_request(xmlstring):
                          username='cisco', password='cisco',
                          hostkey_verify=False, device_params={},
                          allow_agent=False, look_for_keys=False) as device:
-
         netconf_get_reply = device.get(('subtree', xmlstring))
-
-    print("NETCONF RESPONSE:" )
-    print(etree.tostring(netconf_get_reply.data_ele, pretty_print=True).decode('utf-8'))
+    ourput_file = etree.tostring(netconf_get_reply.data_ele, pretty_print=True).decode('utf-8')
+    print("NETCONF RESPONSE:")
+    print(ourput_file)
     print("=" * 80)
     print("=" * 80)
     print("=" * 80)
@@ -31,10 +30,5 @@ print("NETCONF Result: ")
 get_request(xml_filter)
 print("*" * 80)
 print("\n")
-
-
-
-
-
 
 
